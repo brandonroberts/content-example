@@ -1,38 +1,69 @@
 import { Component } from '@angular/core';
+import { RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   standalone: true,
+  imports: [
+    RouterOutlet,
+    RouterLink,
+  ],
   template: `
-    <h2>Analog</h2>
-
-    <h3>The fullstack meta-framework for Angular!</h3>
-
-    <p class="read-the-docs">
-      <a href="https://analogjs.org" target="_blank">Docs</a> |
-      <a href="https://github.com/analogjs/analog" target="_blank">GitHub</a> |
-      <a href="https://github.com/sponsors/brandonroberts" target="_blank">
-        Sponsor
-      </a>
-    </p>
+  <h1>Homepage</h1>
+  <h2>Car manufacturers</h2>
+  <nav>
+    <a [routerLink]="'/'">
+      Home
+    </a>
+    <a [routerLink]="'/ford'">
+      Ford
+    </a>
+    <a [routerLink]="'/ford/focus'">
+      Ford Focus
+    </a>
+    <a [routerLink]="'/ford/fiesta'">
+      Ford Fiesta
+    </a>
+    <a [routerLink]="'/ford/ranger'">
+      Ford Ranger
+    </a>
+    <a [routerLink]="'/porsche'">
+      Porsche
+    </a>
+    <a [routerLink]="'/porsche/911'">
+      Porsche 911
+    </a>
+    <a [routerLink]="'/porsche/cayenne'">
+      Porsche Cayenne
+    </a>
+    <a [routerLink]="'/porsche/taycan'">
+      Porsche Taycan
+    </a>
+  </nav>
   `,
-  styles: `
-    :host {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .read-the-docs > * {
-      color: #fff;
-    }
-
-    @media (prefers-color-scheme: light) {
-      .read-the-docs > * {
-        color: #213547;
+  styles: [
+    `
+      h1 {
+        color: #2c3e50;
       }
-    }
-  `,
+      h2 {
+        color: #2980b9;
+      }
+      nav {
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        gap: 10px;
+        font-size: 18px;
+      }
+      a {
+        margin-right: 10px;
+        text-decoration: none;
+        color: #2980b9;
+      }
+    `,
+  ],
 })
-export default class HomeComponent {}
+export default class HomeComponent {
+}
